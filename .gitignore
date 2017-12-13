@@ -1,0 +1,11 @@
+# Object file
+*.o
+
+# Python:
+__pycache__
+
+# IDE
+.idea
+
+filebase_client
+filebase_server
