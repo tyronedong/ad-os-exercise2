@@ -78,5 +78,5 @@ class Ui_exam(object):
         self.label.setText(_translate("exam", "姓名"))
         self.label_2.setText(_translate("exam", "题数"))
         self.startExamButton.setText(_translate("exam", "开始测验"))
-        self.submitButton.setText(_translate("exam", "提交答t案"))
+        self.submitButton.setText(_translate("exam", "提交答案"))
         self.label_4.setText(_translate("exam", "测验结果"))
