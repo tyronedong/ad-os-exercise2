@@ -216,17 +216,18 @@ def server():
             question = gen_question()
             print('question %s: %s'%(i+1, question))
             conn.sendall(bytes(question, encoding='utf-8'))     # 发送问题
-            answer = str(conn.recv(1024), encoding='utf-8')     # 接受答案
-            if not is_float.match(answer):
-                print('illegal result from client: '+answer)
-                continue
-            if abs(cal_expression(question) - float(answer)) < 0.001:
-                cur_exam = exam_result[name].pop()
-                cur_exam[1] += 1
-                exam_result[name].append(cur_exam)
-                print('right answer from client: '+answer)
-            else:
-                print('wrong answer from client: '+answer)
+            conn.recv(1024)                                     # 阻塞等待客户端接收完毕
+            # answer = str(conn.recv(1024), encoding='utf-8')     # 接受答案
+            # if not is_float.match(answer):
+            #     print('illegal result from client: '+answer)
+            #     continue
+            # if abs(cal_expression(question) - float(answer)) < 0.001:
+            #     cur_exam = exam_result[name].pop()
+            #     cur_exam[1] += 1
+            #     exam_result[name].append(cur_exam)
+            #     print('right answer from client: '+answer)
+            # else:
+            #     print('wrong answer from client: '+answer)
 
         cur_exam = exam_result[name].pop()
         exam_result[name].append(cur_exam)

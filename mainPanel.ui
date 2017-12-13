@@ -21,16 +21,6 @@
   <property name="windowTitle">
    <string>Welcome to the exam</string>
   </property>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>70</y>
-     <width>401</width>
-     <height>391</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -130,7 +120,7 @@
     <string>测验结果</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="userTbox">
+  <widget class="QLineEdit" name="userTBox">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -140,13 +130,23 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="examResultTBox">
+  <widget class="QLineEdit" name="examResultTBox">
    <property name="geometry">
     <rect>
      <x>310</x>
      <y>480</y>
      <width>111</width>
      <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>401</width>
+     <height>411</height>
     </rect>
    </property>
   </widget>

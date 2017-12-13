@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainPanel.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -18,9 +18,6 @@ class Ui_exam(object):
         font.setBold(True)
         font.setWeight(75)
         exam.setFont(font)
-        self.listView = QtWidgets.QListView(exam)
-        self.listView.setGeometry(QtCore.QRect(20, 70, 401, 391))
-        self.listView.setObjectName("listView")
         self.label = QtWidgets.QLabel(exam)
         self.label.setGeometry(QtCore.QRect(20, 20, 51, 31))
         font = QtGui.QFont()
@@ -57,12 +54,18 @@ class Ui_exam(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        self.userTbox = QtWidgets.QPlainTextEdit(exam)
-        self.userTbox.setGeometry(QtCore.QRect(60, 20, 131, 31))
-        self.userTbox.setObjectName("userTbox")
-        self.examResultTBox = QtWidgets.QPlainTextEdit(exam)
+        self.userTBox = QtWidgets.QLineEdit(exam)
+        self.userTBox.setGeometry(QtCore.QRect(60, 20, 131, 31))
+        self.userTBox.setObjectName("userTBox")
+        self.examResultTBox = QtWidgets.QLineEdit(exam)
         self.examResultTBox.setGeometry(QtCore.QRect(310, 480, 111, 31))
         self.examResultTBox.setObjectName("examResultTBox")
+        # self.tableView = QtWidgets.QTableView(exam)
+        # self.tableView.setGeometry(QtCore.QRect(20, 60, 401, 411))
+        # self.tableView.setObjectName("tableView")
+        self.tableWidget = QtWidgets.QTableWidget(exam)
+        self.tableWidget.setGeometry(QtCore.QRect(20, 60, 401, 411))
+        self.tableWidget.setObjectName("tableWidget")
 
         self.retranslateUi(exam)
         self.startExamButton.clicked.connect(exam.startExamButtonClicked)
@@ -75,6 +78,5 @@ class Ui_exam(object):
         self.label.setText(_translate("exam", "姓名"))
         self.label_2.setText(_translate("exam", "题数"))
         self.startExamButton.setText(_translate("exam", "开始测验"))
-        self.submitButton.setText(_translate("exam", "提交答案"))
+        self.submitButton.setText(_translate("exam", "提交答t案"))
         self.label_4.setText(_translate("exam", "测验结果"))
-

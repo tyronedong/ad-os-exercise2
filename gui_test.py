@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
 from mainPanel import *
-from exam import *
+from ExamPanel import *
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
