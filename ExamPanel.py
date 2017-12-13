@@ -1,6 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QTableWidget, QTableWidgetItem
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 from mainPanel import Ui_exam
 import socket
 
@@ -16,7 +17,7 @@ class Exam(QWidget):
             sys.exit(code)
 
         self.tableWidget = self.ui.tableWidget
-
+        self.populateTable(['1','2','3'])
     def init_connection(self):
         return True, None
         host = 'localhost'
@@ -31,34 +32,20 @@ class Exam(QWidget):
             print(err)
             return False, err.args[0]
 
-    def populateTable(self, selectedShip=None):
-        selected = None
+    def populateTable(self, questionList):
         self.tableWidget.clear()
         self.tableWidget.setSortingEnabled(False)
-        self.tableWidget.setRowCount(3)
+        self.tableWidget.setRowCount(len(questionList))
         headers = ["Judge", "Question", "Answer"]
         self.tableWidget.setColumnCount(len(headers))
         self.tableWidget.setHorizontalHeaderLabels(headers)
-        for row, ship in enumerate(self.ships):
-            item = QTableWidgetItem(ship.name)
-            item.setData(Qt.UserRole, id(ship))
-            if selectedShip is not None and selectedShip == id(ship):
-                selected = item
-            self.tableWidget.setItem(row, ships.NAME, item)
-            self.tableWidget.setItem(row, ships.OWNER,
-                                     QTableWidgetItem(ship.owner))
-            self.tableWidget.setItem(row, ships.COUNTRY,
-                                     QTableWidgetItem(ship.country))
-            self.tableWidget.setItem(row, ships.DESCRIPTION,
-                                     QTableWidgetItem(ship.description))
-            item = QTableWidgetItem("{0:>8}".format(ship.teu))
-            item.setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
-            self.tableWidget.setItem(row, ships.TEU, item)
+        for row, question in enumerate(questionList):
+            item = QTableWidgetItem(question)
+            item.setData(Qt.UserRole, id(question))
+            self.tableWidget.setItem(row, 1, item)
         self.tableWidget.setSortingEnabled(True)
         self.tableWidget.resizeColumnsToContents()
-        if selected is not None:
-            selected.setSelected(True)
-            self.tableWidget.setCurrentItem(selected)
+        #self.tableWidget.setCurrentItem(selected)
 
     def startExamButtonClicked(self):
         userName = self.ui.userTBox.text()
